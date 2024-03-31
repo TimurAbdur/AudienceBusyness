@@ -1,0 +1,141 @@
+﻿<Window x:Class="AudienceBusynessApp.SignInForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AudienceBusynessApp"
+        mc:Ignorable="d"
+        Title="Аутентификация" 
+ResizeMode="CanMinimize"
+ Height="500" WindowStartupLocation="CenterScreen" Width="400" MaxHeight="500" MinHeight="500" MaxWidth="400" MinWidth="400" Background="#FFFFFAF4" Icon="/icon.png">
+    <Window.Resources>
+        <Style TargetType="TextBox" x:Key="UnderlineTextBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="PasswordBox" x:Key="UnderlinePasswordBoxStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border BorderThickness="0,0,0,1" BorderBrush="Black">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="MainRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label HorizontalAlignment="Left" Margin="90,31,0,62"  FontSize="28" FontWeight="SemiBold" Grid.ColumnSpan="2" Width="235">Вход в профиль</Label>
+
+        <Border Background="White" MinWidth="300" MaxHeight="380" Margin="30 120 30 0" Padding="20 5 20 10" CornerRadius="20" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="79">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Label FontSize="16" FontWeight="Medium">Логин</Label>
+
+                <Grid>
+                    <TextBox Text="pogorelova.marina" x:Name="textBoxLogin" Padding="0 0 0 2" Style="{StaticResource UnderlineTextBoxStyle}"  FontSize="22" HorizontalAlignment="Left" Width="310"></TextBox>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Border Background="White" MinWidth="300" MaxHeight="380" VerticalAlignment="Top" Padding="20 5 20 10" CornerRadius="20" Margin="30 220 30 0" Grid.ColumnSpan="2" Height="79">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Label FontSize="16" FontWeight="Medium">Пароль</Label>
+
+                <Grid>
+                    <PasswordBox Password="1234" PasswordChar="*" x:Name="textBoxPassword" Padding="0 0 0 2" Style="{StaticResource UnderlinePasswordBoxStyle}"  FontSize="22" HorizontalAlignment="Left" Width="310"></PasswordBox>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+
+
+        <Button HorizontalAlignment="Left" Cursor="Hand" VerticalAlignment="Bottom" Margin="90,0,0,70" FontWeight="SemiBold" Width="220" Height="60" BorderBrush="#FF525252" Content="Войти" Background="#FFFFDC7D" Click="Button_Click" Grid.ColumnSpan="2">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="20">
+                                    <!-- Указываем радиус скругления краев -->
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#ffcf4a"/>
+                                        <!-- Цвет при наведении -->
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button HorizontalAlignment="Left" Cursor="Hand"
+               VerticalAlignment="Bottom"  Margin="142,0,0,36" 
+               FontSize="14" FontWeight="Regular" Content="Войти как студент" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click_1" Grid.ColumnSpan="2" Height="21" Width="117">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#FFCA8200"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="Padding" Value="20"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="24"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="border"
+                     Background="{TemplateBinding Background}"
+                     BorderBrush="{TemplateBinding BorderBrush}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     CornerRadius="10">
+                                    <!-- Указываем радиус скругления краев -->
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="border" Property="Background" Value="#FFFFDAAE"/>
+                                        <!-- Цвет при наведении -->
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

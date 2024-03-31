@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CollegeAuditoriumsModel1Container" CdmEntityContainer="CollegeAuditoriumsEntities1">
+    <EntitySetMapping Name="Audiences">
+      <EntityTypeMapping TypeName="CollegeAuditoriumsModel1.Audiences">
+        <MappingFragment StoreEntitySet="Audiences">
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lessons">
+      <EntityTypeMapping TypeName="CollegeAuditoriumsModel1.Lessons">
+        <MappingFragment StoreEntitySet="Lessons">
+          <ScalarProperty Name="lesson_number" ColumnName="lesson_number" />
+          <ScalarProperty Name="id_audience" ColumnName="id_audience" />
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+          <ScalarProperty Name="id_subject" ColumnName="id_subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="CollegeAuditoriumsModel1.Subjects">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CollegeAuditoriumsModel1.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="CollegeAuditoriumsModel1.Teachers">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Teacher_and_subjects" TypeName="CollegeAuditoriumsModel1.Teacher_and_subjects" StoreEntitySet="Teacher_and_subjects">
+      <EndProperty Name="Subjects">
+        <ScalarProperty Name="subject_name" ColumnName="id_subject" />
+      </EndProperty>
+      <EndProperty Name="Teachers">
+        <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CollegeAuditoriumsModel1.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CollegeAuditoriumsModel1.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище CollegeAuditoriumsModel1.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|c:\\users\\abdur\\documents\\pp\\audiencebusyness__pp\\audiencebusynessapp\\adminpanelform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|solutionrelative:audiencebusynessapp\\adminpanelform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\audiencebusynessapp\\adminpanelform.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|solutionrelative:audiencebusynessapp\\adminpanelform.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\audiencebusynessapp\\userprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|solutionrelative:audiencebusynessapp\\userprofile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\audiencebusynessapp\\userprofile.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|solutionrelative:audiencebusynessapp\\userprofile.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\audiencebusynessapp\\signinform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F4B8AF25-7A67-4AE7-AC5A-717D6B6E668E}|AudienceBusynessApp\\AudienceBusynessApp.csproj|solutionrelative:audiencebusynessapp\\signinform.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SignInForm.xaml",
+              "DocumentMoniker": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\SignInForm.xaml",
+              "RelativeDocumentMoniker": "AudienceBusynessApp\\SignInForm.xaml",
+              "ToolTip": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\SignInForm.xaml",
+              "RelativeToolTip": "AudienceBusynessApp\\SignInForm.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-31T17:47:18.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserProfile.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\UserProfile.xaml.cs",
+              "RelativeDocumentMoniker": "AudienceBusynessApp\\UserProfile.xaml.cs",
+              "ToolTip": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\UserProfile.xaml.cs",
+              "RelativeToolTip": "AudienceBusynessApp\\UserProfile.xaml.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAAACgAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T17:44:36.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserProfile.xaml",
+              "DocumentMoniker": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\UserProfile.xaml",
+              "RelativeDocumentMoniker": "AudienceBusynessApp\\UserProfile.xaml",
+              "ToolTip": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\UserProfile.xaml",
+              "RelativeToolTip": "AudienceBusynessApp\\UserProfile.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-31T17:44:35.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminPanelForm.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\AdminPanelForm.xaml.cs",
+              "RelativeDocumentMoniker": "AudienceBusynessApp\\AdminPanelForm.xaml.cs",
+              "ToolTip": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\AdminPanelForm.xaml.cs",
+              "RelativeToolTip": "AudienceBusynessApp\\AdminPanelForm.xaml.cs",
+              "ViewState": "AQIAAAsBAAAAAAAAAAArwBkBAACAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T17:44:18.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminPanelForm.xaml",
+              "DocumentMoniker": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\AdminPanelForm.xaml",
+              "RelativeDocumentMoniker": "AudienceBusynessApp\\AdminPanelForm.xaml",
+              "ToolTip": "C:\\Users\\abdur\\Documents\\PP\\AudienceBusyness__PP\\AudienceBusynessApp\\AdminPanelForm.xaml",
+              "RelativeToolTip": "AudienceBusynessApp\\AdminPanelForm.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-31T17:43:24.822Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

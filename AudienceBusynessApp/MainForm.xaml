@@ -1,0 +1,1077 @@
+﻿<Window x:Class="AudienceBusynessApp.MainForm" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:local="clr-namespace:AudienceBusynessApp" 
+        mc:Ignorable="d" IsVisibleChanged="changeLessonsSchedule" PreviewKeyDown="MainWindow_PreviewKeyDown"
+       SizeChanged="MainWindow_SizeChanged"
+        Title="Главное меню" MinHeight="630" Height="630"  Background="#FFFFFAF4" Width="900" MinWidth="900" WindowStartupLocation="CenterScreen" Icon="/icon.png">
+    <Window.Resources>
+        <Style x:Key="ImageButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/arrow-left.png" Stretch="Uniform"/>
+                            </Grid.Background>
+
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ImageButtonStyle2" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/arrow-right.png" Stretch="Uniform"/>
+                            </Grid.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ImageButtonStyle3" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/user.png" Stretch="Uniform"/>
+                            </Grid.Background>
+                            <ContentPresenter HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ImageButtonStyle4" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="/pngwing.com.png" Stretch="Uniform"/>
+                            </Grid.Background>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Cursor="Hand" x:Name="openAdminPanel" 
+               MouseLeftButtonDown="openAdminPanel_MouseLeftButtonDown" 
+               Width="33" Height="33"
+               Grid.Row="0" Grid.RowSpan="2" 
+               Grid.Column="0" Grid.ColumnSpan="3"
+               HorizontalAlignment="Right" 
+               VerticalAlignment="Bottom" Margin="15">
+            <Image.Source>
+                <BitmapImage UriSource="/setting.png"/>
+            </Image.Source>
+            <Image.ToolTip>
+                <ToolTip Background="White" Content="Поиск аудитории"/>
+            </Image.ToolTip>
+        </Image>
+        
+        <StackPanel Background="#FFFFDBBB" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Border Margin="20 0 0 0" Height="55">
+                    <TextBlock Grid.Column="0" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center">Занятость аудиторий в колледже</TextBlock>
+                </Border>
+
+                    
+
+                    <Ellipse Height="45" Width="45" Cursor="Hand"   Grid.Column="1"
+                        HorizontalAlignment="Right" Margin="0 0 55 0" x:Name="profileBtn" MouseLeftButtonDown="profileBtn_Click">
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="Uniform" ImageSource="/user.png"/>
+                        </Ellipse.Fill>
+                    <Ellipse.ToolTip>
+                        <ToolTip Background="White" Content="Профиль"/>
+                    </Ellipse.ToolTip>
+                </Ellipse>
+                    <Button HorizontalAlignment="Right"  Margin="0 0 15 0" x:Name="exitProfBtn" Height="25" Width="25" Cursor="Hand" Grid.Column="1" Style="{StaticResource ImageButtonStyle4}" Click="exitProfBtn_Click">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                    <Button.ToolTip>
+                        <ToolTip Background="White" Content="Выйти"/>
+                    </Button.ToolTip>
+                </Button>
+            </Grid>
+        </StackPanel>
+
+
+        <Button x:Name="arrowBtnLeft" Height="250" Grid.Row="1" Cursor="Hand" Grid.Column="0" Style="{StaticResource ImageButtonStyle}" Click="arrowBtnLeft_Click"></Button>
+        <Button x:Name="arrowBtnRight" Height="250" Cursor="Hand" Grid.Row="1" Grid.Column="2" Style="{StaticResource ImageButtonStyle2}" Click="arrowBtnRight_Click">
+        </Button>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="3"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Border CornerRadius="20 20 0 0" Background="White" Margin="0,15,0,0" Grid.Row="0" Grid.Column="0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Image MouseLeftButtonDown="searcAndClose_MouseLeftButtonDown"  Grid.Row="0" Grid.RowSpan="3" 
+                             Height="30" Width="30"  
+                             Cursor="Hand" x:Name="searcAndClose" Margin="0 0 15 0"
+                             HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <Image.Source>
+                            <BitmapImage UriSource="/search.png"/>
+                        </Image.Source>
+                        <Image.ToolTip>
+                            <ToolTip Background="White" Content="Поиск аудитории"/>
+                        </Image.ToolTip>
+                    </Image>
+
+
+                    <Label x:Name="SheduleText" FontWeight="SemiBold" FontSize="18" Margin="0 0 0 -15" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">Список аудиторий</Label>
+                    <Label x:Name="lessonNumberLabel" FontWeight="Medium" FontSize="16" Grid.Row="1" Margin="0 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">Пара 1</Label>
+                    <Label x:Name="lessonTimeLabel" FontSize="16" Grid.Row="1"  Margin="0,21,0,8" HorizontalAlignment="Center" Grid.RowSpan="2">8:30 - 9:50</Label>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" Background="#D9D9D9" Margin="0,0,0,0"></Border>
+
+
+            <Border x:Name="searchBlock"
+        Padding="0 20 0 15"
+        Grid.Row="2" Grid.Column="1" 
+        Background="White" 
+        Margin="0 0 0 15" Visibility="Hidden"
+        CornerRadius="0 0 20 20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <Grid Margin="20 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="37*"></RowDefinition>
+                        <RowDefinition Height="166*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="77*"></ColumnDefinition>
+                        <ColumnDefinition Width="86*"/>
+                        <ColumnDefinition Width="163*"></ColumnDefinition>
+                        <ColumnDefinition Width="163*"></ColumnDefinition>
+                        <ColumnDefinition Width="163*"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="30"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Margin="4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                        <TextBlock Margin="0 0 0 6" FontSize="14" Text="Аудитория:"></TextBlock>
+                        <ComboBox FontSize="12" Background="#FFFFDC7D" x:Name="comboBoxAllAudiences">
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Margin="4" Grid.Row="0" Grid.Column="2">
+                        <TextBlock Margin="0 0 0 6" FontSize="14" Text="Номер пары:"></TextBlock>
+                        <ComboBox  FontSize="12"  Background="#FFFFDC7D" x:Name="comboBoxAllLessonNum">
+
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Margin="4" Grid.Row="0" Grid.Column="3">
+                        <TextBlock Margin="0 0 0 6" FontSize="14" Text="Преподаватель:"></TextBlock>
+                        <ComboBox  FontSize="12" Background="#FFFFDC7D" x:Name="comboBoxTeachers">
+
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel Margin="4" Grid.Row="0" Grid.Column="4">
+                        <TextBlock Margin="0 0 0 6" FontSize="14" Text="Занятость:"></TextBlock>
+                        <ComboBox  FontSize="12" Background="#FFFFDC7D" x:Name="comboBoxBusy">
+
+                        </ComboBox>
+                    </StackPanel>
+
+                    <Image Grid.Column="5" 
+          Height="30" Width="30" MouseLeftButtonDown="search_MouseLeftButtonDown"
+          Cursor="Hand" x:Name="search" Margin="0,0,0,0"
+          >
+                        <Image.Source>
+                            <BitmapImage UriSource="/search.png"/>
+                        </Image.Source>
+                        <Image.ToolTip>
+                            <ToolTip Background="White" Content="Поиск"/>
+                        </Image.ToolTip>
+                    </Image>
+
+                    <Image Grid.Column="6" 
+Height="25" Width="25" MouseLeftButtonDown="clean_MouseLeftButtonDown"
+Cursor="Hand" x:Name="clean" Margin="0,0,0,0"
+>
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="/free-icon-clear-filter-6159296.png" Stretch="Uniform"/>
+                        </Image.OpacityMask>
+                        <Image.Source>
+                            <BitmapImage UriSource="/free-icon-clear-filter-6159296.png"/>
+                        </Image.Source>
+                        <Image.ToolTip>
+                            <ToolTip Background="White" Content="Очистить"/>
+                        </Image.ToolTip>
+                    </Image>
+                    
+                    <StackPanel VerticalAlignment="Center" x:Name="notFoundBlock" Visibility="Hidden" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" >
+                        <TextBlock HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                   FontSize="22"
+                                   FontWeight="SemiBold"
+                                   x:Name="notFoundText"
+                                   TextAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <ListBox  ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Transparent" x:Name="searchAudiencesListBox" Grid.Column="0" Grid.ColumnSpan="6" Margin="0,74,0,0" Grid.RowSpan="2">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <UniformGrid Columns="5" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>                       
+                    </ListBox>
+                </Grid>
+            </Border>
+
+            <Border Visibility="Visible" x:Name="lesson1" Padding="0 20 0 15" Grid.Row="2" Background="White" Margin="0,0,0,15" CornerRadius="0 0 20 20">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <ListBox BorderBrush="Transparent" Background="Transparent" x:Name="lb1">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="6" Rows="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBoxItem MouseDoubleClick="aud11Box_DoubleClick" x:Name="aud11Box" HorizontalContentAlignment="Center" Selected="aud11Box_Selected">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud11"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud12Box_DoubleClick" x:Name="aud12Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud12" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud13Box_DoubleClick" x:Name="aud13Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud13" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud14Box_DoubleClick"  x:Name="aud14Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud14" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud15Box_DoubleClick"  x:Name="aud15Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud15" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud16Box_DoubleClick"  x:Name="aud16Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock  TextAlignment="Center" x:Name="aud16" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud17Box_DoubleClick"  x:Name="aud17Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud17" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud18Box_DoubleClick"  x:Name="aud18Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud18" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud21Box_DoubleClick"  x:Name="aud21Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud21" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud22Box_DoubleClick"  x:Name="aud22Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud22" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud23Box_DoubleClick"  x:Name="aud23Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud23" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud24Box_DoubleClick"  x:Name="aud24Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud24" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud31Box_DoubleClick"  x:Name="aud31Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud31" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud32Box_DoubleClick"  x:Name="aud32Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud32" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud33Box_DoubleClick"  x:Name="aud33Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud33" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud34Box_DoubleClick"  x:Name="aud34Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud34" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud35Box_DoubleClick"  x:Name="aud35Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud35" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud36Box_DoubleClick"  x:Name="aud36Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud36" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud41Box_DoubleClick"  x:Name="aud41Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud41" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud42Box_DoubleClick"  x:Name="aud42Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud42" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud43Box_DoubleClick"  x:Name="aud43Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud43" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud44Box_DoubleClick"  x:Name="aud44Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud44" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud45Box_DoubleClick"  x:Name="aud45Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud45" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud46Box_DoubleClick"  x:Name="aud46Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud46" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+            <Border x:Name="lesson2" Visibility="Hidden" Padding="0 20 0 15" Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 15" CornerRadius="0 0 20 20" Cursor="">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <ListBox BorderBrush="Transparent" Background="Transparent" x:Name="lb2">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="6" Rows="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+
+                    <ListBoxItem MouseDoubleClick="aud112Box_DoubleClick" x:Name="aud112Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud112" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud122Box_DoubleClick"  x:Name="aud122Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud122" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud132Box_DoubleClick"  x:Name="aud132Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud132" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud142Box_DoubleClick"  x:Name="aud142Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud142" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud152Box_DoubleClick"  x:Name="aud152Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud152" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud162Box_DoubleClick"  x:Name="aud162Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock  TextAlignment="Center" x:Name="aud162" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud172Box_DoubleClick"  x:Name="aud172Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud172" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud182Box_DoubleClick"  x:Name="aud182Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud182" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud212Box_DoubleClick"  x:Name="aud212Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud212" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud222Box_DoubleClick"  x:Name="aud222Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud222" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud232Box_DoubleClick"  x:Name="aud232Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud232" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud242Box_DoubleClick"  x:Name="aud242Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud242" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud312Box_DoubleClick"  x:Name="aud312Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud312" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud322Box_DoubleClick"  x:Name="aud322Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud322" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud332Box_DoubleClick"  x:Name="aud332Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud332" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud342Box_DoubleClick"  x:Name="aud342Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud342" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud352Box_DoubleClick"  x:Name="aud352Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud352" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud362Box_DoubleClick"  x:Name="aud362Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud362" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud412Box_DoubleClick"  x:Name="aud412Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud412" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud422Box_DoubleClick"  x:Name="aud422Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud422" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud432Box_DoubleClick"  x:Name="aud432Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud432" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud442Box_DoubleClick"  x:Name="aud442Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud442" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud452Box_DoubleClick"  x:Name="aud452Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud452" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud462Box_DoubleClick"  x:Name="aud462Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud462" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+            <Border x:Name="lesson3" Visibility="Hidden" Padding="0 20 0 15" Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 15" CornerRadius="0 0 20 20" Cursor="">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <ListBox BorderBrush="Transparent" Background="Transparent" x:Name="lb3">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="6" Rows="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+
+                    <ListBoxItem MouseDoubleClick="aud113Box_DoubleClick" x:Name="aud113Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud113" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud123Box_DoubleClick"  x:Name="aud123Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud123" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud133Box_DoubleClick"  x:Name="aud133Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud133" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud143Box_DoubleClick"  x:Name="aud143Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud143" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud153Box_DoubleClick" x:Name="aud153Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud153" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud163Box_DoubleClick" x:Name="aud163Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock  TextAlignment="Center" x:Name="aud163" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud173Box_DoubleClick" x:Name="aud173Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud173" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud183Box_DoubleClick" x:Name="aud183Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud183" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud213Box_DoubleClick" x:Name="aud213Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud213" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud223Box_DoubleClick"  x:Name="aud223Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud223" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud233Box_DoubleClick"  x:Name="aud233Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud233" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud243Box_DoubleClick"  x:Name="aud243Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud243" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud313Box_DoubleClick"  x:Name="aud313Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud313" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud323Box_DoubleClick"  x:Name="aud323Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud323" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud333Box_DoubleClick"  x:Name="aud333Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud333" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud343Box_DoubleClick"  x:Name="aud343Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud343" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud353Box_DoubleClick"  x:Name="aud353Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud353" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud363Box_DoubleClick"  x:Name="aud363Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud363" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud413Box_DoubleClick"  x:Name="aud413Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud413" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud423Box_DoubleClick"  x:Name="aud423Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud423" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud433Box_DoubleClick"  x:Name="aud433Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud433" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud443Box_DoubleClick"  x:Name="aud443Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud443" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud453Box_DoubleClick"  x:Name="aud453Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud453" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud463Box_DoubleClick"  x:Name="aud463Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud463" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+            <Border x:Name="lesson4" Visibility="Hidden" Padding="0 20 0 15" Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 15" CornerRadius="0 0 20 20" Cursor="">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <ListBox BorderBrush="Transparent" Background="Transparent" x:Name="lb4">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="6" Rows="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+
+                    <ListBoxItem MouseDoubleClick="aud114Box_DoubleClick" x:Name="aud114Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud114" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud124Box_DoubleClick"  x:Name="aud124Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud124" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud134Box_DoubleClick"  x:Name="aud134Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud134" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud144Box_DoubleClick"  x:Name="aud144Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud144" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud154Box_DoubleClick" x:Name="aud154Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud154" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud164Box_DoubleClick" x:Name="aud164Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock  TextAlignment="Center" x:Name="aud164" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud174Box_DoubleClick" x:Name="aud174Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud174" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud184Box_DoubleClick" x:Name="aud184Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud184" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud214Box_DoubleClick" x:Name="aud214Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud214" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud224Box_DoubleClick"  x:Name="aud224Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud224" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud234Box_DoubleClick"  x:Name="aud234Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud234" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud244Box_DoubleClick"  x:Name="aud244Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud244" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud314Box_DoubleClick"  x:Name="aud314Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud314" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud324Box_DoubleClick"  x:Name="aud324Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud324" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud334Box_DoubleClick"  x:Name="aud334Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud334" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud344Box_DoubleClick"  x:Name="aud344Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud344" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud354Box_DoubleClick"  x:Name="aud354Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud354" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud364Box_DoubleClick"  x:Name="aud364Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud364" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud414Box_DoubleClick"  x:Name="aud414Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud414" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud424Box_DoubleClick"  x:Name="aud424Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud424" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud434Box_DoubleClick"  x:Name="aud434Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud434" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud444Box_DoubleClick"  x:Name="aud444Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud444" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud454Box_DoubleClick"  x:Name="aud454Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud454" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud464Box_DoubleClick"  x:Name="aud464Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud464" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+            <Border x:Name="lesson5" Visibility="Hidden" Padding="0 20 0 15" Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 15" CornerRadius="0 0 20 20" Cursor="">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <ListBox BorderBrush="Transparent" Background="Transparent" x:Name="lb5">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="6" Rows="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+
+                    <ListBoxItem MouseDoubleClick="aud115Box_DoubleClick" x:Name="aud115Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud115" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud125Box_DoubleClick"  x:Name="aud125Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud125" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud135Box_DoubleClick" x:Name="aud135Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud135" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud145Box_DoubleClick"  x:Name="aud145Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud145" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud155Box_DoubleClick" x:Name="aud155Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud155" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud165Box_DoubleClick" x:Name="aud1645ox" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock  TextAlignment="Center" x:Name="aud165" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud175Box_DoubleClick" x:Name="aud175Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud175" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud185Box_DoubleClick" x:Name="aud185Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud185" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud215Box_DoubleClick" x:Name="aud215Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud215" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud225Box_DoubleClick"  x:Name="aud225Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud225" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud235Box_DoubleClick"  x:Name="aud235Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud235" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud245Box_DoubleClick"  x:Name="aud245Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud245" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud315Box_DoubleClick"  x:Name="aud315Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud315" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud325Box_DoubleClick"  x:Name="aud325Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud325" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud335Box_DoubleClick"  x:Name="aud335Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud335" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud345Box_DoubleClick"  x:Name="aud345Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud345" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud355Box_DoubleClick"  x:Name="aud355Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud355" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud365Box_DoubleClick"  x:Name="aud365Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud365" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud415Box_DoubleClick"  x:Name="aud415Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud415" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud425Box_DoubleClick"  x:Name="aud425Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud425" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud435Box_DoubleClick"  x:Name="aud435Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud435" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud445Box_DoubleClick"  x:Name="aud445Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud445" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud455Box_DoubleClick"  x:Name="aud455Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud455" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud465Box_DoubleClick"  x:Name="aud465Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud465" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+            <Border x:Name="lesson6" Visibility="Hidden" Padding="0 20 0 15" Grid.Row="2" Grid.Column="1" Background="White" Margin="0 0 0 15" CornerRadius="0 0 20 20" Cursor="">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <ListBox BorderBrush="Transparent" Background="Transparent" x:Name="lb6">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="6" Rows="4"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+
+                    <ListBoxItem MouseDoubleClick="aud116Box_DoubleClick" x:Name="aud116Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud116" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud126Box_DoubleClick"  x:Name="aud126Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud126" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud136Box_DoubleClick"  x:Name="aud136Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud136" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud146Box_DoubleClick"  x:Name="aud146Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud146" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud156Box_DoubleClick" x:Name="aud156Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud156" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud166Box_DoubleClick" x:Name="aud166Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock  TextAlignment="Center" x:Name="aud166" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud176Box_DoubleClick" x:Name="aud176Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud176" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem MouseDoubleClick="aud186Box_DoubleClick" x:Name="aud186Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud186" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud216Box_DoubleClick" x:Name="aud216Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud216" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud226Box_DoubleClick"  x:Name="aud226Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud226" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud236Box_DoubleClick"  x:Name="aud236Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud236" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud246Box_DoubleClick"  x:Name="aud246Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud246" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud316Box_DoubleClick"  x:Name="aud316Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud316" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud326Box_DoubleClick"  x:Name="aud326Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud326" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud336Box_DoubleClick"  x:Name="aud336Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud336" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud346Box_DoubleClick"  x:Name="aud346Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud346" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud356Box_DoubleClick"  x:Name="aud356Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud356" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud366Box_DoubleClick"  x:Name="aud366Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud366" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud416Box_DoubleClick"  x:Name="aud416Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud416" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud426Box_DoubleClick"  x:Name="aud426Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud426" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud436Box_DoubleClick"  x:Name="aud436Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud436" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud446Box_DoubleClick"  x:Name="aud446Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud446" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud456Box_DoubleClick"  x:Name="aud456Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud456" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem  MouseDoubleClick="aud466Box_DoubleClick"  x:Name="aud466Box" HorizontalContentAlignment="Center">
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <TextBlock TextAlignment="Center" x:Name="aud466" HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

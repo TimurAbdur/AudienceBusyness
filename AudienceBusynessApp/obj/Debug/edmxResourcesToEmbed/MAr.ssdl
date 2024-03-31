@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ColBDModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Audiences">
+    <Key>
+      <PropertyRef Name="number" />
+    </Key>
+    <Property Name="number" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Lessons">
+    <Key>
+      <PropertyRef Name="lesson_number" />
+      <PropertyRef Name="id_audience" />
+    </Key>
+    <Property Name="lesson_number" Type="nchar" MaxLength="1" Nullable="false" />
+    <Property Name="id_audience" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="id_teacher" Type="tinyint" Nullable="false" />
+    <Property Name="id_subject" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="subject_name" />
+    </Key>
+    <Property Name="subject_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Teacher_and_subjects">
+    <Key>
+      <PropertyRef Name="id_teacher" />
+      <PropertyRef Name="id_subject" />
+    </Key>
+    <Property Name="id_teacher" Type="tinyint" Nullable="false" />
+    <Property Name="id_subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="id_teacher" />
+    </Key>
+    <Property Name="id_teacher" Type="tinyint" Nullable="false" />
+    <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Lessons_Audiences">
+    <End Role="Audiences" Type="Self.Audiences" Multiplicity="1" />
+    <End Role="Lessons" Type="Self.Lessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Audiences">
+        <PropertyRef Name="number" />
+      </Principal>
+      <Dependent Role="Lessons">
+        <PropertyRef Name="id_audience" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lessons_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+    <End Role="Lessons" Type="Self.Lessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="id_teacher" />
+      </Principal>
+      <Dependent Role="Lessons">
+        <PropertyRef Name="id_teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_and_subjects_Subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+    <End Role="Teacher_and_subjects" Type="Self.Teacher_and_subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="subject_name" />
+      </Principal>
+      <Dependent Role="Teacher_and_subjects">
+        <PropertyRef Name="id_subject" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_and_subjects_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+    <End Role="Teacher_and_subjects" Type="Self.Teacher_and_subjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="id_teacher" />
+      </Principal>
+      <Dependent Role="Teacher_and_subjects">
+        <PropertyRef Name="id_teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ColBDModelContainer">
+    <EntitySet Name="Audiences" EntityType="Self.Audiences" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lessons" EntityType="Self.Lessons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher_and_subjects" EntityType="Self.Teacher_and_subjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Lessons_Audiences" Association="Self.FK_Lessons_Audiences">
+      <End Role="Audiences" EntitySet="Audiences" />
+      <End Role="Lessons" EntitySet="Lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lessons_Teachers" Association="Self.FK_Lessons_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Lessons" EntitySet="Lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_and_subjects_Subjects" Association="Self.FK_Teacher_and_subjects_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Teacher_and_subjects" EntitySet="Teacher_and_subjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_and_subjects_Teachers" Association="Self.FK_Teacher_and_subjects_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Teacher_and_subjects" EntitySet="Teacher_and_subjects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
