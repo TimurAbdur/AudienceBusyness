@@ -68,29 +68,29 @@
       <DependentUpon>AdminPanelForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Audiences.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
+      <DependentUpon>CollegeDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="CollegeBD.Context.cs">
+    <Compile Include="CollegeDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CollegeBD.Context.tt</DependentUpon>
+      <DependentUpon>CollegeDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CollegeBD.cs">
+    <Compile Include="CollegeDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CollegeBD.tt</DependentUpon>
+      <DependentUpon>CollegeDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="CollegeBD.Designer.cs">
+    <Compile Include="CollegeDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CollegeBD.edmx</DependentUpon>
+      <DependentUpon>CollegeDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="FreeUpAudience.xaml.cs">
       <DependentUpon>FreeUpAudience.xaml</DependentUpon>
     </Compile>
     <Compile Include="LessonInfo.cs" />
     <Compile Include="Lessons.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
+      <DependentUpon>CollegeDB.tt</DependentUpon>
     </Compile>
     <Compile Include="MainForm.xaml.cs">
       <DependentUpon>MainForm.xaml</DependentUpon>
@@ -101,20 +101,11 @@
     <Compile Include="SignInForm.xaml.cs">
       <DependentUpon>SignInForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Subjects.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
+      <DependentUpon>CollegeDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Teachers.cs">
-      <DependentUpon>CollegeBD.tt</DependentUpon>
+      <DependentUpon>CollegeDB.tt</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserProfile.xaml.cs">
@@ -168,12 +159,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CollegeBD.edmx">
+    <EntityDeploy Include="CollegeDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CollegeBD.Designer.cs</LastGenOutput>
+      <LastGenOutput>CollegeDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CollegeBD.edmx.diagram">
-      <DependentUpon>CollegeBD.edmx</DependentUpon>
+    <None Include="CollegeDB.edmx.diagram">
+      <DependentUpon>CollegeDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -202,15 +193,15 @@
     <Resource Include="icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CollegeBD.Context.tt">
+    <Content Include="CollegeDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CollegeBD.edmx</DependentUpon>
-      <LastGenOutput>CollegeBD.Context.cs</LastGenOutput>
+      <DependentUpon>CollegeDB.edmx</DependentUpon>
+      <LastGenOutput>CollegeDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CollegeBD.tt">
+    <Content Include="CollegeDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CollegeBD.edmx</DependentUpon>
-      <LastGenOutput>CollegeBD.cs</LastGenOutput>
+      <DependentUpon>CollegeDB.edmx</DependentUpon>
+      <LastGenOutput>CollegeDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
