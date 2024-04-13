@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("collegedb.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("collegedb.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("collegebd.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("collegebd.tt")]
 
 

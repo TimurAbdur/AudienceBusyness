@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CollegeAuditoriumsEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Audiences">
+    <Key>
+      <PropertyRef Name="id_audience" />
+    </Key>
+    <Property Name="id_audience" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lessons" Relationship="Self.FK_Lessons_Audiences" FromRole="Audiences" ToRole="Lessons" />
+  </EntityType>
+  <EntityType Name="Lessons">
+    <Key>
+      <PropertyRef Name="lesson_number" />
+      <PropertyRef Name="id_audience" />
+    </Key>
+    <Property Name="lesson_number" Type="Int32" Nullable="false" />
+    <Property Name="id_audience" Type="Int32" Nullable="false" />
+    <Property Name="id_teacher" Type="Int32" Nullable="false" />
+    <Property Name="id_subject" Type="Int32" />
+    <NavigationProperty Name="Audiences" Relationship="Self.FK_Lessons_Audiences" FromRole="Lessons" ToRole="Audiences" />
+    <NavigationProperty Name="Teachers" Relationship="Self.FK_Lessons_Teachers" FromRole="Lessons" ToRole="Teachers" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="id_subject" />
+    </Key>
+    <Property Name="id_subject" Type="Int32" Nullable="false" />
+    <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="subject_desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Teachers" Relationship="Self.Teacher_and_subjects" FromRole="Subjects" ToRole="Teachers" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="id_teacher" />
+    </Key>
+    <Property Name="id_teacher" Type="Int32" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="profile_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Lessons" Relationship="Self.FK_Lessons_Teachers" FromRole="Teachers" ToRole="Lessons" />
+    <NavigationProperty Name="Subjects" Relationship="Self.Teacher_and_subjects" FromRole="Teachers" ToRole="Subjects" />
+  </EntityType>
+  <Association Name="FK_Lessons_Audiences">
+    <End Role="Audiences" Type="Self.Audiences" Multiplicity="1" />
+    <End Role="Lessons" Type="Self.Lessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Audiences">
+        <PropertyRef Name="id_audience" />
+      </Principal>
+      <Dependent Role="Lessons">
+        <PropertyRef Name="id_audience" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lessons_Teachers">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+    <End Role="Lessons" Type="Self.Lessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="id_teacher" />
+      </Principal>
+      <Dependent Role="Lessons">
+        <PropertyRef Name="id_teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Teacher_and_subjects">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="*" />
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="CollegeAuditoriumsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Audiences" EntityType="Self.Audiences" />
+    <EntitySet Name="Lessons" EntityType="Self.Lessons" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" />
+    <AssociationSet Name="FK_Lessons_Audiences" Association="Self.FK_Lessons_Audiences">
+      <End Role="Audiences" EntitySet="Audiences" />
+      <End Role="Lessons" EntitySet="Lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lessons_Teachers" Association="Self.FK_Lessons_Teachers">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Lessons" EntitySet="Lessons" />
+    </AssociationSet>
+    <AssociationSet Name="Teacher_and_subjects" Association="Self.Teacher_and_subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Teachers" EntitySet="Teachers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

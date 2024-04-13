@@ -91,7 +91,7 @@
                 <BitmapImage UriSource="/setting.png"/>
             </Image.Source>
             <Image.ToolTip>
-                <ToolTip Background="White" Content="Поиск аудитории"/>
+                <ToolTip Background="White" Content="Панель админа"/>
             </Image.ToolTip>
         </Image>
         
